@@ -18,8 +18,8 @@ import javax.persistence.SequenceGenerator;
  * @author c0645457
  */
 @Entity
-public class Person implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Person{
+   
     @Id
      @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @SequenceGenerator(name = "id", sequenceName = "id")
@@ -61,29 +61,19 @@ public class Person implements Serializable {
         this.id = id;
     }
 
+      @Override
+    public boolean equals(Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
+
+        Person person = (Person) o;
+
+        return id.equals(person.id);
+    }
+
     @Override
     public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
+        return id.hashCode();
     }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Person)) {
-            return false;
-        }
-        Person other = (Person) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "c0645457.java.joggingdatacollection.entities.Person[ id=" + id + " ]";
-    }
-    
 }
+

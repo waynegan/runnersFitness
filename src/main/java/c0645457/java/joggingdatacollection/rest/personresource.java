@@ -24,6 +24,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
@@ -38,7 +39,7 @@ import javax.ws.rs.core.UriInfo;
 @Path("persons")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class personresource {
+public class personresource extends Application {
  @PersistenceContext
    private EntityManager entityManager;
 
@@ -65,9 +66,7 @@ public class personresource {
     }
     /**
      * Retrieves representation of an instance of c0645457.java.joggingdatacollection.rest.personresource
-     * @param page
-     * @param sortFields
-     * @param sortDirections
+     
      * @return an instance of java.lang.String
      */
     @GET
