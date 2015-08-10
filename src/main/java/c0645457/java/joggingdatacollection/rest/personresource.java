@@ -65,6 +65,9 @@ public class personresource {
     }
     /**
      * Retrieves representation of an instance of c0645457.java.joggingdatacollection.rest.personresource
+     * @param page
+     * @param sortFields
+     * @param sortDirections
      * @return an instance of java.lang.String
      */
     @GET
